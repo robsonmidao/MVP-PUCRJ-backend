@@ -1,3 +1,6 @@
+# MVP-PUCRJ-backend
+Backend do projeto 'Controle de Estacionamento'
+
 # API Controle de estacionamento
 
 Esta API realiza o controle de entrada e saída de veículos em um estacionamento.
@@ -9,9 +12,20 @@ O usuário deverá preencher todos os dados para registrar o tempo de permanênc
 
 
 Será necessário ter todas as libs python listadas no `requirements.txt` instaladas.
-Após clonar o repositório, é necessário ir ao diretório raiz, pelo terminal, para poder executar os comandos descritos abaixo.
+Após clonar o repositório, é necessário ir ao diretório meu_app_api, pelo terminal, para poder executar os comandos descritos abaixo.
 
 > É fortemente indicado o uso de ambientes virtuais do tipo [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html).
+
+
+```
+(env)$ python -m venv venv
+```
+Este comando prepara o ambiente virtual
+
+```
+(env)$ venv/scripts/Activate.ps1
+```
+Este comando ativa o ambiente virtual
 
 ```
 (env)$ pip install -r requirements.txt
