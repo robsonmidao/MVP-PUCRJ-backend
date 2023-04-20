@@ -18,7 +18,7 @@ class Comentario(Base):
     # um estacionamento ao comentário.
     estacionamento = Column(Integer, ForeignKey("estacionamento.id"), nullable=False)
 
-    def __init__(self, texto:str, data_insercao:Union[DateTime, None] = None):
+    def __init__(self, texto:str):
         """
         Cria um Comentário
 
@@ -27,6 +27,5 @@ class Comentario(Base):
             data_insercao: data de quando o comentário foi feito ou inserido
                            à base
         """
-        self.texto = texto
-        if data_insercao:
-            self.data_insercao = data_insercao
+        self.texto = texto       
+        self.data_insercao = datetime.now()
