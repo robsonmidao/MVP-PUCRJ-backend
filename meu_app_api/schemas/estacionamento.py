@@ -77,5 +77,5 @@ def apresenta_estacionamento(estacionamento: Estacionamento):
         "data_hora_saida": estacionamento.data_hora_saida,
         "valor": estacionamento.valor,
         "total_comentarios": len(estacionamento.comentarios),
-        "comentarios": [{"texto": c.texto} for c in estacionamento.comentarios]
+        "comentarios": [{"texto": c.texto, "data_insercao": c.data_insercao} for c in estacionamento.comentarios]
     }
