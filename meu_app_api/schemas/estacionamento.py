@@ -16,12 +16,6 @@ class EstacionamentoSchema(BaseModel):
 
 class EstacionamentoBuscaSchema(BaseModel):
     """ Define como deve ser a estrutura que representa a busca. Que será
-        feita apenas com base na placa do registro de estacionamento.
-    """
-    placa: str = "ABC-1234"
-
-class EstacionamentoBuscaExclusaoSchema(BaseModel):
-    """ Define como deve ser a estrutura que representa a busca. Que será
         feita apenas com base no id do registro de estacionamento.
     """
     id: int 

@@ -94,17 +94,17 @@ def get_estacionamento(query: EstacionamentoBuscaSchema):
 
     Retorna uma representação dos registros de estacionamento e comentários associados.
     """
-    estacionamento_placa = query.placa
-    logger.debug(f"Coletando dados sobre estacionamento #{estacionamento_placa}")
+    estacionamento_id = query.id
+    logger.debug(f"Coletando dados sobre estacionamento #{estacionamento_id}")
     # criando conexão com a base
     session = Session()
     # fazendo a buscaPrata
-    estacionamento = session.query(Estacionamento).filter(Estacionamento.placa == estacionamento_placa).first()
+    estacionamento = session.query(Estacionamento).filter(Estacionamento.id == estacionamento_id).first()
 
     if not estacionamento:
         # se o registro de estacionamento não foi encontrado
         error_msg = "Registro de estacionamento não encontrado na base :/"
-        logger.warning(f"Erro ao buscar estacionamento '{estacionamento_placa}', {error_msg}")
+        logger.warning(f"Erro ao buscar estacionamento '{estacionamento_id}', {error_msg}")
         return {"mesage": error_msg}, 404
     else:
         logger.debug(f"Registro de estacionamento econtrado: '{estacionamento.placa}'")
@@ -114,7 +114,7 @@ def get_estacionamento(query: EstacionamentoBuscaSchema):
 
 @app.delete('/estacionamento', tags=[estacionamento_tag],
             responses={"200": EstacionamentoDelSchema, "404": ErrorSchema})
-def del_estacionamento(query: EstacionamentoBuscaExclusaoSchema):
+def del_estacionamento(query: EstacionamentoBuscaSchema):
     """Deleta um registro de estacionamento a partir do id de estacionamento informado
 
     Retorna uma mensagem de confirmação da remoção.
