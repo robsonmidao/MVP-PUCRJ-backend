@@ -54,13 +54,13 @@ def add_estacionamento(form: EstacionamentoSchema):
     except IntegrityError as e:
         # como a duplicidade do nome é a provável razão do IntegrityError
         error_msg = "Registro de estacionamento de mesmo nome já salvo na base :/"
-        logger.warning(f"Erro ao adicionar registro de estacionamento '{estacionamento.placa}', {error_msg}")
+        logger.warning(f"Err001 - Erro ao adicionar registro de estacionamento da placa:'{estacionamento.placa}', {error_msg}")
         return {"mesage": error_msg}, 409
 
     except Exception as e:
         # caso um erro fora do previsto
         error_msg = e #"Não foi possível salvar novo item :/"
-        logger.warning(f"Erro ao adicionar registro de estacionamento '{estacionamento.id,estacionamento.placa,estacionamento.veiculo,estacionamento.data_hora_entrada,estacionamento.data_hora_saida,estacionamento.data_insercao,estacionamento.valor}', {error_msg}")
+        logger.warning(f"Err002 - Erro ao adicionar registro de estacionamento da placa:'{estacionamento.placa}', {error_msg}")
         return {"mesage": error_msg}, 400
 
 
